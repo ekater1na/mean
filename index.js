@@ -5,11 +5,16 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
 const config = require('./config/db');
-const accoutn = require('./routes/account')
+const account = require('./routes/account')
 
 const app = express();
 
 const port = 3000;
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
 
 app.use(cors());
 
@@ -31,7 +36,7 @@ app.get('/', (req, res) => {
     res.send('Main page')
 });
 
-app.use('/account', accoutn);
+app.use('/account', account);
 
 app.listen(port, () => {
     console.log("Server open " + port);
