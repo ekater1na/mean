@@ -8,10 +8,12 @@ import { RegComponent } from './reg/reg.component';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { CheckFormService } from './check-form.service'
 
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms'
+
 
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
@@ -36,7 +38,7 @@ const appRoute: Routes = [
     RouterModule.forRoot(appRoute),
     FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CheckFormService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
