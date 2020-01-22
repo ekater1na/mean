@@ -13,7 +13,7 @@ import { CheckFormService } from './check-form.service'
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms'
-
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
@@ -36,7 +36,8 @@ const appRoute: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
-    FormsModule
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [CheckFormService],
   bootstrap: [AppComponent],

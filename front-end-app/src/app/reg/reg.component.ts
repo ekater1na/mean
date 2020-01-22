@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckFormService } from "../check-form.service"
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-reg',
@@ -13,7 +14,10 @@ export class RegComponent implements OnInit {
   email: String;
   password: String;
 
-  constructor(private checkForm: CheckFormService) { }
+  constructor(
+    private checkForm: CheckFormService,
+    private flashMessages: FlashMessagesService
+    ) { }
 
   ngOnInit() {
   }
@@ -27,16 +31,28 @@ export class RegComponent implements OnInit {
     };
     
     if(!this.checkForm.checkName(user.name)) {
-      console.log("Username not entered");
+      this.flashMessages.show("Username not entered", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
       return false;
     } else if (!this.checkForm.checkLogin(user.login)) {
-      console.log("Login not entered");
+      this.flashMessages.show("Login not entered", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
       return false;
     } else if (!this.checkForm.checkEmail(user.email)) {
-      console.log("Email not entered");
+      this.flashMessages.show("Email not entered", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
       return false;
     } else if (!this.checkForm.checkPassword(user.password)) {
-      console.log("Password not entered");
+      this.flashMessages.show("Password not entered", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
       return false;
     }
 
