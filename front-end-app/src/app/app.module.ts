@@ -9,6 +9,7 @@ import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { CheckFormService } from './check-form.service'
+import { AuthService } from './auth.service'
 
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
@@ -39,7 +40,7 @@ const appRoute: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [CheckFormService],
+  providers: [CheckFormService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
