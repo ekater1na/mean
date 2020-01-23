@@ -5,7 +5,6 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/db');
 
-
 // router.get('/reg', (req, res) => {
 //     res.send('Registration page')
 // });
