@@ -10,10 +10,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { CheckFormService } from './check-form.service'
 import { AuthService } from './auth.service'
+import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 const appRoute: Routes = [
@@ -38,7 +39,8 @@ const appRoute: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
     FormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    HttpModule
   ],
   providers: [CheckFormService, AuthService],
   bootstrap: [AppComponent],
