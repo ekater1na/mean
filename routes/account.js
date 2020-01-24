@@ -5,10 +5,6 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/db');
 
-// router.get('/reg', (req, res) => {
-//     res.send('Registration page')
-// });
-
 router.post('/reg', (req, res) => {
     let newUser = new User ({
         name: req.body.name,
@@ -19,9 +15,9 @@ router.post('/reg', (req, res) => {
 
     User.addUser(newUser, (err, user) => {
         if(err)
-            res.json({success: false, msg: "User is registered"});
+            res.json({success: false, msg: "User not registered"});
         else
-            res.json({success: true, msg: "User not registered"});
+            res.json({success: true, msg: "User is registered"});
     });
 });
 
@@ -33,10 +29,11 @@ router.post('/auth', (req, res) => {
         if(err) throw err;
         if(!user)
             return res.json({success: false, msg: 'User not founded'});
+
         User.comparePass(password, user.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch) {
-                const token = jwt.sign(user, config.secret, {
+                const token = jwt.sign(user.toJSON(), config.secret, {
                     expiresIn: 3600 * 24
                 });
 
@@ -49,7 +46,7 @@ router.post('/auth', (req, res) => {
                         login: user.login,
                         email: user.email
                     }
-                })
+                });
             } else 
             return res.json({success: false, msg: 'Passwords don\'t match'});
         });
