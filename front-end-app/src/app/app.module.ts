@@ -8,13 +8,13 @@ import { RegComponent } from './reg/reg.component';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { CheckFormService } from './check-form.service'
-import { AuthService } from './auth.service'
+import { CheckFormService } from './check-form.service';
+import { AuthService } from './auth.service';
 import { FooterComponent } from './footer/footer.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms'
-import { HttpModule } from '@angular/http'
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 const appRoute: Routes = [

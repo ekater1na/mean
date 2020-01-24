@@ -27,8 +27,8 @@ export class AuthComponent implements OnInit {
       password: this.password
     };
 
-    if(user.password == undefined) {
-      this.flashMessages.show("Enter password", {
+    if (user.password == undefined) {
+      this.flashMessages.show('Enter password', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
@@ -36,13 +36,13 @@ export class AuthComponent implements OnInit {
     }
 
     this.authService.authUser(user).subscribe(data => {
-      if(!data.success) {
+      if (!data.success) {
         this.flashMessages.show(data.msg, {
           cssClass: 'alert-danger',
           timeout: 4000
         });
       } else {
-        this.flashMessages.show("You authorized", {
+        this.flashMessages.show('You authorized', {
           cssClass: 'alert-success',
           timeout: 4000
         });

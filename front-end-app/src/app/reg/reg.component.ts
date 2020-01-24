@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckFormService } from "../check-form.service"
+import { CheckFormService } from '../check-form.service';
 import { AuthService } from '../auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
@@ -32,27 +32,27 @@ export class RegComponent implements OnInit {
       email: this.email,
       password: this.password,
     };
-    
-    if(!this.checkForm.checkName(user.name)) {
-      this.flashMessages.show("Username not entered", {
+
+    if (!this.checkForm.checkName(user.name)) {
+      this.flashMessages.show('Username not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
       return false;
     } else if (!this.checkForm.checkLogin(user.login)) {
-      this.flashMessages.show("Login not entered", {
+      this.flashMessages.show('Login not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
       return false;
     } else if (!this.checkForm.checkEmail(user.email)) {
-      this.flashMessages.show("Email not entered", {
+      this.flashMessages.show('Email not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
       return false;
     } else if (!this.checkForm.checkPassword(user.password)) {
-      this.flashMessages.show("Password not entered", {
+      this.flashMessages.show('Password not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
@@ -60,7 +60,7 @@ export class RegComponent implements OnInit {
     }
 
     this.authService.registerUser(user).subscribe(data => {
-      if(!data.success) {
+      if (!data.success) {
         this.flashMessages.show(data.msg, {
           cssClass: 'alert-danger',
           timeout: 4000

@@ -8,30 +8,34 @@ export class CheckFormService {
   constructor() { }
 
   checkName(name) {
-    if(name == undefined)
+    if (name == undefined) {
       return false;
-    else
+    } else {
       return true;
+    }
   }
 
   checkLogin(login) {
-    if(login == undefined)
+    if (login == undefined) {
       return false;
-    else
+    } else {
       return true;
+    }
   }
 
   checkEmail(email) {
-    if(email == undefined)
+    if (email == undefined) {
       return false;
-    else
+    } else {
       return true;
+    }
   }
 
   checkPassword(password) {
-    if(password == undefined)
+    if (password == undefined) {
       return false;
-    else
+    } else {
       return true;
+    }
   }
 }

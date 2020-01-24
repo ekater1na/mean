@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   logoutUser() {
     this.authService.logout();
-    this.flashMessages.show("You log out", {
+    this.flashMessages.show('You log out', {
       cssClass: 'alert-warning',
       timeout: 4000
     });

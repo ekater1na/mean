@@ -14,21 +14,21 @@ export class AuthService {
   constructor(private http: Http) { }
 
   registerUser(user) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post(
       'http://localhost:3000/account/reg',
-       user, 
-      {headers: headers}).pipe(map(res => res.json()));
+       user,
+      {headers}).pipe(map(res => res.json()));
   }
 
   authUser(user) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post(
       'http://localhost:3000/account/auth',
-       user, 
-      {headers: headers}).pipe(map(res => res.json()));
+       user,
+      {headers}).pipe(map(res => res.json()));
   }
 
   storeUser(token, user) {
